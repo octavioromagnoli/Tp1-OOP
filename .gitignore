@@ -1,6 +1,12 @@
 # Prerequisites
 *.d
 
+#executables
+1
+2
+3
+4
+
 # Compiled Object files
 *.slo
 *.lo
