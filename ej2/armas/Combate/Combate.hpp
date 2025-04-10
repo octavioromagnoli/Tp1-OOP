@@ -37,11 +37,11 @@ public:
  /*
    Retorna string con el ataque Elemental del arma y el daño que aplica.
  */
- virtual pair<string, int> spriritualMove() = 0;
+ virtual pair<string, int> spiritualMove() = 0;
  /*
    Retorna string con el efecto Mágico del arma y el daño que aplica.
  */
- virtual pair<string, int> spriritualEffect() = 0;
+ virtual pair<string, int> spiritualEffect() = 0;
 
 
 protected:
