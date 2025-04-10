@@ -2,46 +2,54 @@
 #include <string>
 using namespace std;
 
-Combate::Combate(string name, int damage, Spirit spirit, int level, bool broken) : name(name), damage(damage), type(Type::Combat), level(level), broken(broken), spirit(spirit){}
+Combate::Combate(string name, int damage, Spirit spirit, int level, bool broken) : name(name), damage(damage), type(Type::Combat), level(level), broken(broken), spirit(spirit) {}
 
-string Combate::getName() const{
+string Combate::getName() const
+{
   return name;
 }
 
-int Combate::getDamage() const{
+int Combate::getDamage() const
+{
   return damage;
 }
 
-Type Combate::getType() const{
+Type Combate::getType() const
+{
   return type;
 }
 
-int Combate::getLevel() const{
+int Combate::getLevel() const
+{
   return level;
 }
 
-bool Combate::setLevel(int newLevel) {
-  if(newLevel < 1){
+bool Combate::setLevel(int newLevel)
+{
+  if (newLevel < 1)
+  {
     return false;
   }
   level = newLevel;
   return true;
 }
 
-bool Combate::isBroken() const{
+bool Combate::isBroken() const
+{
   return broken;
 }
 
-void Combate::setBroken(bool brokenState){
+void Combate::setBroken(bool brokenState)
+{
   broken = brokenState;
 }
 
-Spirit Combate::getSpirit() const{
+Spirit Combate::getSpirit() const
+{
   return spirit;
 }
 
-void Combate::setSpirit(Spirit newSpirit){
+void Combate::setSpirit(Spirit newSpirit)
+{
   spirit = newSpirit;
 }
-
-
