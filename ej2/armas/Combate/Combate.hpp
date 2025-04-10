@@ -14,7 +14,7 @@ enum class Spirit{
 
 class Combate: public Arma{
   public:
-    Combate(string name, int damage, Spirit spirit, int level = 1, bool broken = false);
+    Combate(string name, int damage, Spirit spirit = Spirit::None, int level = 1, bool broken = false);
 
     string getName() const override;
     int getDamage() const override;

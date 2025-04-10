@@ -1,6 +1,15 @@
 
-ARMAS = ej2/armas
+SRCS2 := $(shell find ej2 -type f -name "*.cpp")
+HDRS2 := $(shell find ej2 -type f -name "*.hpp")
+OBJS2 := $(SRCS2:.cpp=.o)
 
-run2armas: $(ARMAS)/interfaz/Arma.hpp $(ARMAS)/Magico/Magico.hpp $(ARMAS)/Combate/Combate.hpp $(ARMAS)/Magico/Magico.cpp  $(ARMAS)/Combate/Combate.cpp ej2/main.cpp
-	g++ -Wall -g $(ARMAS)/Magico/Magico.cpp $(ARMAS)/Combate/Combate.cpp ej2/main.cpp -o 2
+run2: $(OBJS2)
+	g++ -Wall -g $(OBJS2) -o 2
+	./2
+
+%.o: %.cpp $(HDRS2)
+	g++ -Wall -g -c $< -o $@
+
+run2: $(OBJS2)
+	g++ -Wall -g $(OBJS2) -o 2
 	./2
