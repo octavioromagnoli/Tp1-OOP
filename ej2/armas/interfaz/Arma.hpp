@@ -1,7 +1,7 @@
 #ifndef ARMAS_HPP
 #define ARMAS_HPP
 
-#include<iostream>
+#include<string>
 using namespace std;
 
 enum class Type {Magic, Combat};
