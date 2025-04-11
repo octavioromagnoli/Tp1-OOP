@@ -43,6 +43,7 @@ public:
  */
  virtual pair<string, int> spiritualEffect() = 0;
 
+  virtual ~Combate();
 
 protected:
   string name;

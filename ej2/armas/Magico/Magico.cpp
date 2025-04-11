@@ -5,6 +5,8 @@ using namespace std;
 
 Magico::Magico(string name, int damage, Element element, int level, bool broken) : name(name), damage(damage), type(Type::Magic), level(level), broken(broken), element(element){}
 
+Magico::~Magico(){}
+
 string Magico::getName() const{
   return name;
 }

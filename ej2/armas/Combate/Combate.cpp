@@ -4,6 +4,8 @@ using namespace std;
 
 Combate::Combate(string name, int damage, Spirit spirit, int level, bool broken) : name(name), damage(damage), type(Type::Combat), level(level), broken(broken), spirit(spirit) {}
 
+Combate::~Combate() {}
+
 string Combate::getName() const
 {
   return name;

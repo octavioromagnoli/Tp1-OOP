@@ -7,6 +7,8 @@
 3
 4
 
+# VSCode folder
+.vscode/
 # Compiled Object files
 *.slo
 *.lo

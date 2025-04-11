@@ -43,6 +43,8 @@ public:
   */
   virtual pair<string, int> magicalEffect() = 0;
 
+  virtual ~Magico();
+
 protected:
   string name;
   int damage;
