@@ -7,7 +7,7 @@ Libro::Libro(string name, int damage, Element element, int level, bool broken) :
 
 pair<string, int> Libro::basicMove()
 {
-  return make_pair("Ataque de Libro", 10);
+  return make_pair("Ataque de Libro", damage);
 }
 
 pair<string, int> Libro::elementalMove()

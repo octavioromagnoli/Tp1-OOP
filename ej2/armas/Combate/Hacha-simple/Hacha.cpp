@@ -7,7 +7,7 @@ Hacha::Hacha(string name, int damage, Spirit spirit, int level, bool broken) : C
 
 pair<string, int> Hacha::basicMove()
 {
-  return make_pair("Ataque de Hacha", 10);
+  return make_pair("Ataque de Hacha", damage);
 }
 
 pair<string, int> Hacha::spiritualMove()

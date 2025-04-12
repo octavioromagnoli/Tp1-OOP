@@ -7,7 +7,7 @@ Lanza::Lanza(string name, int damage, Spirit spirit, int level, bool broken) : C
 
 pair<string, int> Lanza::basicMove()
 {
-  return make_pair("Ataque de Lanza", 10);
+  return make_pair("Ataque de Lanza", damage);
 }
 
 pair<string, int> Lanza::spiritualMove()

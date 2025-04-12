@@ -7,7 +7,7 @@ Hachadoble::Hachadoble(string name, int damage, Spirit spirit, int level, bool b
 
 pair<string, int> Hachadoble::basicMove()
 {
-  return make_pair("Ataque de Hacha Doble", 10);
+  return make_pair("Ataque de Hacha Doble", damage);
 }
 
 pair<string, int> Hachadoble::spiritualMove()

@@ -7,7 +7,7 @@ Espada::Espada(string name, int damage, Spirit spirit, int level, bool broken) :
 
 pair<string, int> Espada::basicMove()
 {
-  return make_pair("Ataque de Espada", 10);
+  return make_pair("Ataque de Espada", damage);
 }
 
 pair<string, int> Espada::spiritualMove()

@@ -7,7 +7,7 @@ Amuleto::Amuleto(string name, int damage, Element element, int level, bool broke
 
 pair<string, int> Amuleto::basicMove()
 {
-  return make_pair("Ataque de Amuleto", 10);
+  return make_pair("Ataque de Amuleto", damage);
 }
 
 pair<string, int> Amuleto::elementalMove()

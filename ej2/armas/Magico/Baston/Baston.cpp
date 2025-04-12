@@ -7,7 +7,7 @@ Baston::Baston(string name, int damage, Element element, int level, bool broken)
 
 pair<string, int> Baston::basicMove()
 {
-  return make_pair("Ataque de bastón", 10);
+  return make_pair("Ataque de bastón", damage);
 }
 
 pair<string, int> Baston::elementalMove()

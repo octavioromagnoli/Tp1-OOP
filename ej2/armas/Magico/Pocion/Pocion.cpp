@@ -7,7 +7,7 @@ Pocion::Pocion(string name, int damage, Element element, int level, bool broken)
 
 pair<string, int> Pocion::basicMove()
 {
-  return make_pair("Ataque de Poción", 10);
+  return make_pair("Ataque de Poción", damage);
 }
 
 pair<string, int> Pocion::elementalMove()

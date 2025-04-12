@@ -7,7 +7,7 @@ Garrote::Garrote(string name, int damage, Spirit spirit, int level, bool broken)
 
 pair<string, int> Garrote::basicMove()
 {
-  return make_pair("Ataque de Garrote", 10);
+  return make_pair("Ataque de Garrote", damage);
 }
 
 pair<string, int> Garrote::spiritualMove()
