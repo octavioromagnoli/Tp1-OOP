@@ -5,14 +5,13 @@
 #include "../../armas/interfaz/Arma.hpp"
 #include <string>
 #include <memory>
+#include <utility>
 #include <list>
 using namespace std;
 
 class Mago : public Personaje
 {
 public:
-  Mago(string name, int mana = 0, int health = 100, int level = 1);
-
   string getName() const override;
   int getHealth() const override;
   bool setHealth(int) override;
@@ -27,11 +26,13 @@ public:
   int getMana() const;
   void setMana(int);
 
-  virtual void castSpell(const string &target) = 0;
+  virtual pair<string, int> castSpell() = 0;
 
   virtual ~Mago();
 
 protected:
+  Mago(string name, int mana = 0, int health = 100, int level = 1);
+
   string name;
   int health;
   int level;
