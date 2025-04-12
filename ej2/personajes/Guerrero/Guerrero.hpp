@@ -1,5 +1,5 @@
-#ifndef MAGO_HPP
-#define MAGO_HPP
+#ifndef GUERRERO_HPP
+#define GUERRERO_HPP
 
 #include "../interfaz/Personaje.hpp"
 #include "../../armas/interfaz/Arma.hpp"
@@ -27,7 +27,7 @@ public:
   int getEnergy() const;
   void setEnergy(int);
 
-  virtual void throwPowerMove(const string &target) = 0;
+  virtual pair<string, int> powerCall() = 0;
 
   virtual ~Guerrero();
 
@@ -41,4 +41,4 @@ protected:
   bool isdead;
 };
 
-#endif // MAGO_HPP
+#endif // GUERRERO_HPP
