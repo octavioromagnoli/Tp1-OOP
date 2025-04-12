@@ -8,6 +8,7 @@ using namespace std;
 
 class Baston : public Magico
 {
+public:
   Baston(string name, int damage, Element element = Element::None, int level = 1, bool broken = false);
 
   pair<string, int> basicMove() override;

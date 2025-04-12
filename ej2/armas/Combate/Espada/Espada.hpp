@@ -8,6 +8,7 @@ using namespace std;
 
 class Espada : public Combate
 {
+public:
   Espada(string name, int damage, Spirit spirit = Spirit::None, int level = 1, bool broken = false);
 
   pair<string, int> basicMove() override;

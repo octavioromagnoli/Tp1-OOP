@@ -8,6 +8,7 @@ using namespace std;
 
 class Garrote : public Combate
 {
+public:
   Garrote(string name, int damage, Spirit spirit = Spirit::None, int level = 1, bool broken = false);
 
   pair<string, int> basicMove() override;

@@ -6,8 +6,9 @@
 
 class Hechicero : public Mago
 {
+public:
   Hechicero(int mana = 0, int health = 100, int level = 1);
-  
+
   pair<string, int> castSpell() override;
 };
 

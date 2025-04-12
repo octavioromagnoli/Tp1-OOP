@@ -3,7 +3,7 @@
 #include <utility>
 using namespace std;
 
-Mercenario::Mercenario(int mana, int health, int level) : Guerrero("Mercenario", mana, health, level) {}
+Mercenario::Mercenario(int energy, int health, int level) : Guerrero("Mercenario", energy, health, level) {}
 
 pair<string, int> Mercenario::powerCall() {
   if(energy < 100){

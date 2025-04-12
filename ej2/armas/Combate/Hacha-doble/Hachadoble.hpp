@@ -8,6 +8,7 @@ using namespace std;
 
 class Hachadoble : public Combate
 {
+public:
   Hachadoble(string name, int damage, Spirit spirit = Spirit::None, int level = 1, bool broken = false);
 
   pair<string, int> basicMove() override;

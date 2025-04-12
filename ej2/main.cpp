@@ -25,9 +25,10 @@
 using namespace std;
 
 int main(){
-  auto libro = make_unique<Libro>;
-  auto bruja = make_unique<Bruja>;
+  auto libro = make_unique<Libro>("Libro de Luz", 10, Element::Luminic);
+  auto bruja = make_unique<Bruja>(100);
 
-  auto espada = make_unique<Espada>();
+  auto espada = make_unique<Espada>("Espada Dragón", 12, Spirit::Dragon);
+  auto paladin = make_unique<Paladin>(100);
   return 0;
 }

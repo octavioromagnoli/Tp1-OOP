@@ -3,7 +3,7 @@
 #include <utility>
 using namespace std;
 
-Barbaro::Barbaro(int mana, int health, int level) : Guerrero("Barbaro", mana, health, level) {}
+Barbaro::Barbaro(int energy, int health, int level) : Guerrero("Barbaro", energy, health, level) {}
 
 pair<string, int> Barbaro::powerCall() {
   if(energy < 100){

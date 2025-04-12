@@ -3,7 +3,7 @@
 #include <utility>
 using namespace std;
 
-Gladiador::Gladiador(int mana, int health, int level) : Guerrero("Gladiador", mana, health, level) {}
+Gladiador::Gladiador(int energy, int health, int level) : Guerrero("Gladiador", energy, health, level) {}
 
 pair<string, int> Gladiador::powerCall() {
   if(energy < 100){
