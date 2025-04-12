@@ -9,7 +9,9 @@ pair<string, int> Conjurador::castSpell() {
   if(mana < 100){
     return make_pair("Mana insuficiente", 0);
   }
-  int retValue = 15 * level++;
+  int retValue = 15 * level;
+  health += retValue;
+  level++;
   mana -= 100;
   return make_pair("Invocación elemental", retValue);
 }
