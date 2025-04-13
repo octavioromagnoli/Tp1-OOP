@@ -100,7 +100,7 @@ bool Mago::equipWeapon(unique_ptr<Arma> armaNueva)
 
 void Mago::discardWeapon(int index)
 {
-  if (index > static_cast<int>(weapons.size()))
+  if (index < 1 || index > static_cast<int>(weapons.size()))
   {
     return;
   }
@@ -109,3 +109,13 @@ void Mago::discardWeapon(int index)
   weapons.erase(it);
 }
 
+
+Arma* Mago::getWeapon(int index) {
+  if (index < 1 || index > static_cast<int>(weapons.size()))
+  {
+    return nullptr;
+  }
+  auto it = weapons.begin();
+  advance(it, index - 1);
+  return it->get();
+}  

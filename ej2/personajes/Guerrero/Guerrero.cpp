@@ -100,7 +100,7 @@ bool Guerrero::equipWeapon(unique_ptr<Arma> armaNueva)
 
 void Guerrero::discardWeapon(int index)
 {
-  if (index > static_cast<int>(weapons.size()))
+  if (index < 1 || index > static_cast<int>(weapons.size()))
   {
     return;
   }
@@ -108,4 +108,14 @@ void Guerrero::discardWeapon(int index)
   advance(it, index - 1);
   weapons.erase(it);
 }
+
+Arma* Guerrero::getWeapon(int index) {
+  if (index < 1 || index > static_cast<int>(weapons.size()))
+  {
+    return nullptr;
+  }
+  auto it = weapons.begin();
+  advance(it, index - 1);
+  return it->get();
+}  
 

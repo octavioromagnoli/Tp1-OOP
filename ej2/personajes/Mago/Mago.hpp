@@ -22,6 +22,7 @@ public:
   bool isDead() const override;
   bool equipWeapon(unique_ptr<Arma>) override;
   void discardWeapon(int) override;
+  Arma* getWeapon(int) override;
 
   int getMana() const;
   void setMana(int);

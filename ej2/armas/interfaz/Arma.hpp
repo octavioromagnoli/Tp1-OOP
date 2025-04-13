@@ -13,6 +13,7 @@ enum class Type
 class Arma
 {
 public:
+  virtual ~Arma(){}; 
   virtual string getName() const = 0;
   virtual int getDamage() const = 0;
   virtual Type getType() const = 0;

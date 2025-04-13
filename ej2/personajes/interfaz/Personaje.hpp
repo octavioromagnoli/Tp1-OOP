@@ -15,6 +15,7 @@ enum class Clan
 class Personaje
 {
 public:
+  virtual ~Personaje(){};
   virtual string getName() const = 0;
   virtual int getHealth() const = 0;
   virtual bool setHealth(int) = 0;
@@ -25,6 +26,7 @@ public:
   virtual bool isDead() const = 0;
   virtual bool equipWeapon(unique_ptr<Arma>) = 0;
   virtual void discardWeapon(int) = 0;
+  virtual Arma *getWeapon(int) = 0;
 };
 
 #endif // PERSONAJE_HPP
