@@ -10,6 +10,18 @@ enum class Type
   Combat
 };
 
+enum class Weapon{
+  Espada,
+  Garrote,
+  Hachadoble,
+  Hachasimple,
+  Lanza,
+  Amuleto,
+  Baston,
+  Libro,
+  Pocion
+};
+
 class Arma
 {
 public:

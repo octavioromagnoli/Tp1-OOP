@@ -12,6 +12,18 @@ enum class Clan
   Warrior
 };
 
+enum class Character{
+  Barbaro,
+  Caballero,
+  Gladiador,
+  Mercenario,
+  Paladin,
+  Bruja,
+  Conjurador,
+  Hechicero,
+  Nigromante
+};
+
 class Personaje
 {
 public:
