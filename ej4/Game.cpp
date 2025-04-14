@@ -3,6 +3,7 @@
 #include <ctime>
 #include <sstream>
 #include <limits>
+#include <string>
 using namespace std;
 
 #include "../ej2/armas/Combate/Combate.hpp"
@@ -13,8 +14,6 @@ using namespace std;
 #include "../ej2/personajes/Guerrero/Guerrero.hpp"
 #include "Game.hpp"
 #include "../ej3/PersonajeFactory/PersonajeFactory.hpp"
-
-// TODO agregar lógica para encantar el arma (en el cout para que de la opcion y en solveTurn)
 
 // ! revisar punteros raw para no dejar dangling pointers
 
@@ -29,18 +28,24 @@ void Game::start()
   srand(time(0));
   string winner;
   bool playing = true;
+  int turno = 1;
   while (playing)
   {
+    cout << string(75, '-') << endl
+         << "\t\t\t\tTURNO " << turno++ << endl
+         << string(75, '-') << endl;
     showMenu();
     int opcion1 = chooseActionMove(1, 3);
     int opcion2 = rand() % 3 + 1;
     showAttackMenu();
     int attack1 = chooseActionMove(1, 5);
+    cout << endl
+         << "==> ";
     int attack2 = rand() % 5 + 1;
     int enchant2 = rand() % 4 + 1;
 
     solveTurn(opcion1, opcion2, attack1, attack2, enchant2);
-
+    cout << endl;
     if (player1->isDead())
     {
       playing = false;
@@ -53,7 +58,7 @@ void Game::start()
     }
   }
 
-  cout << "¡Juego terminado! El ganador fue " << winner << endl;
+  cout << "====== ¡Juego terminado! El ganador fue " << winner << " ======" << endl;
 }
 
 void Game::solveTurn(int chose1, int chose2, int attack1, int attack2, int enchant2)
@@ -145,18 +150,18 @@ void Game::showAttackMenu()
   ostringstream characterPrint;
   ostringstream weaponPrints;
 
-  finalPrint << player1->getName() << " es de nivel " << player1->getLevel();
+  finalPrint << "== " << player1->getName() << " es de nivel " << player1->getLevel();
 
   Mago *player1Mago = dynamic_cast<Mago *>(player1.get());
   Guerrero *player1Guerrero = dynamic_cast<Guerrero *>(player1.get());
   if (player1Mago)
   {
-    finalPrint << " y tiene " << player1Mago->getMana() << " Mana " << endl;
+    finalPrint << " y tiene " << player1Mago->getMana() << " Mana " << " ==" << endl;
     characterPrint << "(4) Lanzar hechizo del personaje ";
   }
   else if (player1Guerrero)
   {
-    finalPrint << " y tiene " << player1Guerrero->getEnergy() << " Energía " << endl;
+    finalPrint << " y tiene " << player1Guerrero->getEnergy() << " Energía " << " ==" << endl;
     characterPrint << "(4) Hablidad de poder del personaje ";
   }
   player1Mago = nullptr;
@@ -173,7 +178,8 @@ void Game::showAttackMenu()
 
   finalPrint << weaponPrints.str() << characterPrint.str() << "(5) Encantar Arma : ";
 
-  cout << "Seleccione qué desea hacer en su turno de ataque:" << endl;
+  cout << endl
+       << "Seleccione qué desea hacer en su turno de ataque:" << endl;
   cout << finalPrint.str();
 }
 

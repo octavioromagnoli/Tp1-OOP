@@ -16,6 +16,8 @@
 
 int main() {
   Game game(Character::Paladin, Character::Nigromante, Weapon::Garrote, Weapon::Amuleto);
+
+  
   game.start();
   return 0;
 }
