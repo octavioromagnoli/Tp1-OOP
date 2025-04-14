@@ -12,7 +12,6 @@
 #include "Game.hpp"
 #include "../ej3/PersonajeFactory/PersonajeFactory.hpp"
 
-
 int main()
 {
   cout << "---------- Elija su personaje para el jugador 1: ----------" << endl;
@@ -21,15 +20,12 @@ int main()
        << endl;
   Character player1 = static_cast<Character>(Game::chooseActionMove(0, 8));
 
-  
-
   cout << "---------- Elija su arma para el jugador 1: ----------" << endl;
   cout << "(0) Espada, (1) Garrote, (2) Hachadoble, (3) Hachasimple, (4) Lanza, "
           "(5) Amuleto, (6) Baston, (7) Libro, (8) Pocion"
        << endl;
   Weapon weapon1 = static_cast<Weapon>(Game::chooseActionMove(0, 8));
 
-  
   int character2 = static_cast<int>(rand() % 9);
   int gun2 = static_cast<int>(rand() % 9);
   Character player2 = static_cast<Character>(character2);

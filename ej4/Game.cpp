@@ -97,7 +97,7 @@ void Game::solveTurn(int chose1, int chose2, int attack1, int attack2, int encha
     if (attack2 == 5)
     {
       enchantWeapon2(enchant2);
-      cout << player2->getName() << " encantó su arma " << player1->getWeapon(1)->getName() << endl;
+      cout << player2->getName() << " encantó su arma " << player2->getWeapon(1)->getName() << endl;
       return;
     }
 
@@ -164,8 +164,6 @@ void Game::showAttackMenu()
     finalPrint << " y tiene " << player1Guerrero->getEnergy() << " Energía " << " ==" << endl;
     characterPrint << "(4) Hablidad de poder del personaje ";
   }
-  player1Mago = nullptr;
-  player1Guerrero = nullptr;
 
   if (dynamic_cast<Magico *>(player1->getWeapon(1)))
   {
