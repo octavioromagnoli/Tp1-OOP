@@ -15,7 +15,6 @@ using namespace std;
 #include "Game.hpp"
 #include "../ej3/PersonajeFactory/PersonajeFactory.hpp"
 
-// ! revisar punteros raw para no dejar dangling pointers
 
 Game::Game(Character character1, Character character2, Weapon weapon1, Weapon weapon2)
 {
@@ -39,13 +38,15 @@ void Game::start()
     int opcion2 = rand() % 3 + 1;
     showAttackMenu();
     int attack1 = chooseActionMove(1, 5);
-    cout << endl
-         << "==> ";
     int attack2 = rand() % 5 + 1;
     int enchant2 = rand() % 4 + 1;
 
+    cout << endl
+         << "==> ";
     solveTurn(opcion1, opcion2, attack1, attack2, enchant2);
     cout << endl;
+
+    // condición de finalizado, que un jugador no tenga HP
     if (player1->isDead())
     {
       playing = false;
@@ -183,14 +184,17 @@ void Game::showAttackMenu()
 
 pair<string, int> Game::obtainAttackValues1(int playerSelection)
 {
+  // Downcast para poder tratar al personaje diferente según su tipo
+  // Utilizo que dynamic cast devuelve nullptr ante downcast inválido.
   Mago *player1Mago = dynamic_cast<Mago *>(player1.get());
   Guerrero *player1Guerrero = dynamic_cast<Guerrero *>(player1.get());
+
   if (player1Mago)
     player1Mago->setMana(player1Mago->getMana() + (rand() % 10) * 10);
   if (player1Guerrero)
     player1Guerrero->setEnergy(player1Guerrero->getEnergy() + (rand() % 10) * 10);
 
-  if (playerSelection == 4)
+  if (playerSelection == 4) // se seleccionó habilidad del personajes
   {
     if (player1Mago)
     {
@@ -201,6 +205,8 @@ pair<string, int> Game::obtainAttackValues1(int playerSelection)
       return player1Guerrero->powerCall();
     }
   }
+
+  // Repito el downcasting para evaluar tipo, ahora con el arma
   if (dynamic_cast<Magico *>(player1->getWeapon(1)))
   {
     auto weapon = dynamic_cast<Magico *>(player1->getWeapon(1));
@@ -239,16 +245,18 @@ pair<string, int> Game::obtainAttackValues1(int playerSelection)
 
 pair<string, int> Game::obtainAttackValues2(int gameSelection)
 {
+  // Downcast para poder tratar al personaje diferente según su tipo
+  // Utilizo que dynamic cast devuelve nullptr ante downcast inválido.
   Mago *player2Mago = dynamic_cast<Mago *>(player2.get());
   Guerrero *player2Guerrero = dynamic_cast<Guerrero *>(player2.get());
+
   if (player2Mago)
     player2Mago->setMana(player2Mago->getMana() + (rand() % 10) * 10);
   if (player2Guerrero)
     player2Guerrero->setEnergy(player2Guerrero->getEnergy() + (rand() % 10) * 10);
 
-  if (gameSelection == 4)
+  if (gameSelection == 4) //si tocó habilidad del personaje
   {
-
     if (player2Mago)
     {
       return player2Mago->castSpell();
@@ -258,6 +266,7 @@ pair<string, int> Game::obtainAttackValues2(int gameSelection)
       return player2Guerrero->powerCall();
     }
   }
+  // de nuevo, downcasting pero del arma
   if (dynamic_cast<Magico *>(player2->getWeapon(1)))
   {
     auto weapon = dynamic_cast<Magico *>(player2->getWeapon(1));
@@ -378,6 +387,7 @@ void Game::enchantWeapon1(Type armaTipo, int selection)
 
 void Game::enchantWeapon2(int selection)
 {
+  // Downcasting para evaluar el tipo de arma
   auto weaponMagico = dynamic_cast<Magico *>(player2->getWeapon(1));
   auto weaponCombate = dynamic_cast<Combate *>(player2->getWeapon(1));
 

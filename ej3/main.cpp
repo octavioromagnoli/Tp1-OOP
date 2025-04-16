@@ -14,16 +14,18 @@ int main()
 {
   srand(time(0));
 
+  // Se decide la cantidad de magos y guerreros
   int cantidadMagos = randomIntBetween(3, 7);
   int cantidadGuerreros = randomIntBetween(3, 7);
 
   cout <<endl<< "Cantidad de Magos: " << cantidadMagos << endl;
   cout << "Cantidad de Guerreros: " << cantidadGuerreros << endl<<endl;
 
-  vector<unique_ptr<Personaje>> personajes;
+  vector<unique_ptr<Personaje>> personajes; //vector para guardar los personajes creados
 
   for (int i = 0; i < cantidadMagos; i++)
   {
+    // Para cada mago, decido random que tipo de mago es
     int magoRandom = randomIntBetween(0, 3);
     Character tipoMago;
     switch (magoRandom)
@@ -45,13 +47,16 @@ int main()
     auto mago = PersonajeFactory::crearPersonaje(tipoMago);
     if (mago)
     {
+      // decido cuantas armas tendrá el personaje creado
       int armasNum = randomIntBetween(0, 2);
       for (int j = 0; j < armasNum; j++)
       {
+        // decido qué armas serán entre los 9 tipos distintos
         int armaRand = randomIntBetween(0, 8);
         auto arma = PersonajeFactory::crearArma(static_cast<Weapon>(armaRand));
         if (arma)
         {
+          // Le doy ownership al personaje
           mago->equipWeapon(move(arma));
         }
         else
@@ -67,8 +72,10 @@ int main()
     }
   }
 
+  
   for (int i = 0; i < cantidadGuerreros; i++)
   {
+    // Para cada mago, decido random que tipo de mago es
     int guerreroRandom = randomIntBetween(0, 4);
     Character tipoGuerrero;
     switch (guerreroRandom)
@@ -93,13 +100,16 @@ int main()
     auto guerrero = PersonajeFactory::crearPersonaje(tipoGuerrero);
     if (guerrero)
     {
+      // Decido cuantas armas tendra el personaje
       int armasNum = randomIntBetween(0, 2);
       for (int j = 0; j < armasNum; j++)
       {
+        // Decido qué tipo de armma tendrá el personaje entre las 9 posibles.
         int armaRand = randomIntBetween(0, 8);
         auto arma = PersonajeFactory::crearArma(static_cast<Weapon>(armaRand));
         if (arma)
         {
+          // Le doy ownership del arma al personaje
           guerrero->equipWeapon(move(arma));
         }
         else
@@ -131,6 +141,7 @@ int main()
     auto personaje = personajes[i].get();
     cout << "Personaje: " << personaje->getName() << endl;
     cout << "Armas: " << endl;
+    // obtengo ambas posibles armas, luego verifico si habia arma o es nullptr
     auto firstWeapon = personaje->getWeapon(1);
     auto secondWeapon = personaje->getWeapon(2);
     if (!firstWeapon)
