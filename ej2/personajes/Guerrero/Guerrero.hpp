@@ -23,11 +23,16 @@ public:
   bool isDead() const override;
   bool equipWeapon(unique_ptr<Arma>) override;
   void discardWeapon(int) override;
-  Arma* getWeapon(int) override;
+  Arma *getWeapon(int) override;
 
   int getEnergy() const;
   void setEnergy(int);
 
+  /*
+  Habilidad del personaje, si este tiene al menos 100 de energía al ser llamado el método,
+  se deberá curar una cantidad dada por su nivel y subir un nivel. La energía se consume.
+  No hace nada frente a falta de energía.
+ */
   virtual pair<string, int> powerCall() = 0;
 
   virtual ~Guerrero();

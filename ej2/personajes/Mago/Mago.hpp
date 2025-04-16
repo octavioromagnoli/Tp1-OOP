@@ -22,11 +22,16 @@ public:
   bool isDead() const override;
   bool equipWeapon(unique_ptr<Arma>) override;
   void discardWeapon(int) override;
-  Arma* getWeapon(int) override;
+  Arma *getWeapon(int) override;
 
   int getMana() const;
   void setMana(int);
 
+  /*
+    Habilidad del personaje, si este tiene al menos 100 de mana al ser llamado el método, 
+    se deberá curar una cantidad dada por su nivel y subir un nivel. El mana se consume en 100.
+    No hace nada ante maná insuficiente.
+   */
   virtual pair<string, int> castSpell() = 0;
 
   virtual ~Mago();
